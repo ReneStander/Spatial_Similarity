@@ -172,7 +172,7 @@ continuous_marked_density <- function(data, gr = 10, wind = win_rec, wind_type =
   # - convert it to a dataframe
   grid.centres <- data.frame(gc_x = grid.centres$x, gc_y = grid.centres$y)
   
-  mpp <- ppp(data$x, data$y, window = wind, marks = data$value)
+  mpp <- ppp(data$x, data$y, window = wind, marks = data$marks)
   freqmat <- quadratcount(mpp, nx = gr)
   if(wind_type == 'convex'){
     t <- freqmat
@@ -224,7 +224,7 @@ continuous_marked_density <- function(data, gr = 10, wind = win_rec, wind_type =
     if(!is.na(freqmat[d_indx, d_indy])){
       dd <- cbind(d[,1] - df_use[,1], d[,2] - df_use[,2])
       kernel <- apply(dd,1,dmvnorm, mean = c(0,0), sigma = bw_matrix)
-      grid.centres$num[j] <- sum(df_use$value*kernel)
+      grid.centres$num[j] <- sum(df_use$marks*kernel)
       grid.centres$denom[j] <- sum(kernel)
     }
   }
