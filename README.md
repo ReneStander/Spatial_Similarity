@@ -30,6 +30,10 @@ This script contains all the functions needed to perform the test.
 
 * global_index: calculated the global similarity index
 
-## Examples.R
+## Example 1.R
 
-This script contains some examples how to use the method
+This script contains an example where the method is applied to unmarked point patterns. 
+
+## Example 2.R 
+
+This script contains an example where the method is applied to marked point patterns. For this example, the data is simulated. 
